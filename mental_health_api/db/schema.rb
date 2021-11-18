@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_18_004400) do
+ActiveRecord::Schema.define(version: 2021_11_18_004552) do
 
   create_table "behaviors", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 2021_11_18_004400) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_behaviors_on_user_id"
+  end
+
+  create_table "conditions", force: :cascade do |t|
+    t.integer "behavior_id", null: false
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["behavior_id"], name: "index_conditions_on_behavior_id"
   end
 
   create_table "insurances", force: :cascade do |t|
@@ -64,6 +73,7 @@ ActiveRecord::Schema.define(version: 2021_11_18_004400) do
   end
 
   add_foreign_key "behaviors", "users"
+  add_foreign_key "conditions", "behaviors"
   add_foreign_key "insurances", "users"
   add_foreign_key "medications", "users"
   add_foreign_key "providers", "insurances"

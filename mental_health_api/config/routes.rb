@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :conditions
   resources :providers
   resources :behaviors
   resources :insurances
