@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_18_004133) do
+ActiveRecord::Schema.define(version: 2021_11_18_004400) do
 
   create_table "behaviors", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(version: 2021_11_18_004133) do
     t.index ["user_id"], name: "index_medications_on_user_id"
   end
 
+  create_table "providers", force: :cascade do |t|
+    t.integer "insurance_id", null: false
+    t.string "name"
+    t.string "address"
+    t.string "phone"
+    t.date "first_visit"
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["insurance_id"], name: "index_providers_on_insurance_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -54,4 +66,5 @@ ActiveRecord::Schema.define(version: 2021_11_18_004133) do
   add_foreign_key "behaviors", "users"
   add_foreign_key "insurances", "users"
   add_foreign_key "medications", "users"
+  add_foreign_key "providers", "insurances"
 end
