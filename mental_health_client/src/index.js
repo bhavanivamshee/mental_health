@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import rootReducer from './reducers/index';
+import rootReducer from './reducers/rootReducer';
 import App from './components/App';
 
 const store = createStore(rootReducer, 
@@ -16,7 +16,7 @@ const store = createStore(rootReducer,
 //create a store for redux 1. reducer 2. dev tools
 
 ReactDOM.render(
-  <Provider store=(store)>
+  <Provider store={store}>
   <App />
   </Provider>,
   document.getElementById('root')
