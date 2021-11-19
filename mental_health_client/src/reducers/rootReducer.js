@@ -1,9 +1,8 @@
 import { combineReducers } from "redux";
-
-import { medicationsReducer } from './behaviorsReducer'
-import { insurancesReducer } from './insurancesReducer'
-import { behaviorsReducer } from './behaviorsReducer'
-import { authReducer } from './authReducer'
+import { medicationsReducer } from './medicationsReducer';
+import { insurancesReducer } from './insurancesReducer';
+import { behaviorsReducer } from './behaviorsReducer';
+import { authReducer } from './authReducer';
 
 
 export const rootReducer = combineReducers({

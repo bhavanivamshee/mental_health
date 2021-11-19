@@ -9,8 +9,8 @@ class MedicationsController < ApplicationController
         @medication = current_user.medications.build(medication_params)
         if @medication && @medication.save
         render json: @medication.to_json
-        elserender json: { message: @medcication.errors }, status: 400
+        elserender json: { message: @medication.errors }, status: 400
         end
     end
-    
+
 end
